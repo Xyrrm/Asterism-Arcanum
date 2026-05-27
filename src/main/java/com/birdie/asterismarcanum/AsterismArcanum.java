@@ -34,15 +34,13 @@ public class AsterismArcanum {
 
     public AsterismArcanum(IEventBus modEventBus, ModContainer modContainer) {
         LOGGER.info("Asterism Arcanum is loading...");
-
+        NeoForge.EVENT_BUS.register(this);
+        
         modEventBus.addListener(this::commonSetup);
 
         ASARCreativeModeTabs.register(modEventBus);
-
         ASARLootModifiers.register(modEventBus);
-
         ASARItemsRegistry.register(modEventBus);
-
         ASARSpellRegistry.register(modEventBus);
         ASAREntityRegistry.register(modEventBus);
         ASARSchoolRegistry.register(modEventBus);
@@ -52,8 +50,6 @@ public class AsterismArcanum {
         ASARSoundsRegistry.register(modEventBus);
 
         AzureLib.initialize();
-
-        NeoForge.EVENT_BUS.register(this);
 
         LOGGER.info("Asterism Arcanum finished loading!");
     }
